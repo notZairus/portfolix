@@ -1,14 +1,23 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { register } from "@/actions/auth.actions";
+import { toast } from "sonner";
 
 const RegisterPage = () => {
   const [state, action] = useActionState(register, undefined);
+
+  useEffect(() => {
+    if (!state) return;
+
+    if (state.success) {
+      toast.success(state.message);
+    }
+  }, [state]);
 
   return (
     <div className="w-full h-full bg-background">

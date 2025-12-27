@@ -63,7 +63,10 @@ export async function register(pervState: unknown, formData: FormData) {
   const newUser = new User(validatedData);
   await newUser.save();
 
-  return redirect("/login");
+  return {
+    success: true,
+    message: "Registration success!",
+  };
 }
 
 export async function logout() {
