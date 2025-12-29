@@ -21,10 +21,10 @@ const MainLayout = ({
       <div className="w-full h-full flex">
         <Sidebar open={open} user={user} />
         <section className="flex-1 flex flex-col">
-          <div className="pt-4 pl-4">
+          <div className="pt-4 px-4">
             <SidebarButton setOpen={() => setOpen(!open)} />
           </div>
-          <div className="flex-1 px-24 py-4 pb-12 flex flex-col">
+          <div className="flex-1 px-4 md:px-24 py-4 pb-12 flex flex-col">
             <PageName />
             <Spacer height={8} />
             <main className="flex-1">{children}</main>

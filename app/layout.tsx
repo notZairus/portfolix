@@ -36,7 +36,7 @@ export default function RootLayout({
         className={`h-screen min-h-screen w-full ${geistSans.variable} ${geistMono.variable} antialiased relative dark`}
       >
         <div className="absolute inset-0 -z-10">
-          <Particles particleCount={100} particleSpread={30} speed={0.05} />
+          <Particles particleCount={300} particleSpread={36} speed={0.1} />
         </div>
 
         <SessionProvider>{children}</SessionProvider>

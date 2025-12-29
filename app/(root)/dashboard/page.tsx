@@ -1,27 +1,27 @@
 const page = async () => {
   return (
-    <div className="w-full h-full">
-      <div className="grid w-full h-full grid-cols-8 grid-rows-7 gap-4">
+    <div className="w-full h-full min-h-400 md:min-h-0">
+      <div className="grid w-full h-full grid-cols-1 md:grid-cols-8 grid-rows-7 gap-4">
         <div
-          className={`w-full h-full bg-card border-card-border border col-span-3 row-span-2`}
+          className={`w-full h-full bg-card border-card-border border md:col-span-3 md:row-span-2`}
         />
         <div
-          className={`w-full h-full bg-card border-card-border border col-span-3 row-span-2`}
+          className={`w-full h-full bg-card border-card-border border md:col-span-3 md:row-span-2`}
         />
         <div
-          className={`w-full h-full bg-card border-card-border border col-span-2 row-span-5`}
+          className={`w-full h-full bg-card border-card-border border md:col-span-2 md:row-span-5`}
         />
         <div
-          className={`w-full h-full bg-card border-card-border border col-span-2 row-span-5`}
+          className={`w-full h-full bg-card border-card-border border md:col-span-2 md:row-span-5`}
         />
         <div
-          className={`w-full h-full bg-card border-card-border border col-span-4 row-span-3`}
+          className={`w-full h-full bg-card border-card-border border md:col-span-4 md:row-span-3`}
         />
         <div
-          className={`w-full h-full bg-card border-card-border border col-span-3 row-span-2`}
+          className={`w-full h-full bg-card border-card-border border md:col-span-3 md:row-span-2`}
         />
         <div
-          className={`w-full h-full bg-card border-card-border border col-span-3 row-span-2`}
+          className={`w-full h-full bg-card border-card-border border md:col-span-3 md:row-span-2`}
         />
       </div>
     </div>
