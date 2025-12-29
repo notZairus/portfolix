@@ -4,7 +4,7 @@ import connectDb from "@/lib/db";
 import { IUser } from "@/lib/global";
 import User from "@/models/user";
 
-export const getUserByEmail = async (email: string) => {
+export const getUserByEmail = async (email) => {
   await connectDb();
 
   const user = await User.findOne({ email: email });

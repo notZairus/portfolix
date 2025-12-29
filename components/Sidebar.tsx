@@ -1,25 +1,11 @@
-import Spacer from "./Spacer";
-import {
-  DashboardSquare02Icon,
-  Blockchain06Icon,
-} from "@hugeicons/core-free-icons";
-import NavButton from "./NavButton";
+"use client";
+
+import { IUser } from "@/lib/global";
+import SidebarTitle from "./SidebarTitle";
+import SidebarNav from "./SidebarNav";
 import SidebarProfile from "./SidebarProfile";
 
-const navs = [
-  {
-    title: "Dashboard",
-    href: "/dashboard",
-    icon: DashboardSquare02Icon,
-  },
-  {
-    title: "Projects",
-    href: "/projects",
-    icon: Blockchain06Icon,
-  },
-];
-
-const Sidebar = ({ open }: { open: boolean }) => {
+const Sidebar = ({ open, user }: { open: boolean; user: IUser }) => {
   return (
     <>
       <div
@@ -33,27 +19,13 @@ const Sidebar = ({ open }: { open: boolean }) => {
           } transition-all duration-500`}
         >
           <div className="h-full flex flex-col justify-between">
-            <div>
-              <div className="w-full py-5 flex items-center gap-2 px-8 border-b-2 border-sidebar-boder">
-                <div className="aspect-square h-8 rounded-full bg-white/50"></div>
-                <p className="font-semibold text-xl">VantaLearn</p>
-              </div>
-
-              <Spacer height={4} />
-
-              <nav className="w-full min-h-20 flex flex-col items-start">
-                {navs.map((nav) => (
-                  <NavButton
-                    key={nav.title}
-                    href={nav.href}
-                    icon={nav.icon}
-                    title={nav.title}
-                  />
-                ))}
-              </nav>
+            <div className="space-y-4">
+              <SidebarTitle />
+              <SidebarNav />
             </div>
-
-            <SidebarProfile />
+            <div>
+              <SidebarProfile user={user} />
+            </div>
           </div>
         </div>
       </div>

@@ -1,31 +1,12 @@
-"use client";
+import { getUserByEmail } from "@/actions/user.actions";
+import MainLayout from "@/layouts/MainLayout";
+import { auth } from "@/lib/auth";
 
-import Sidebar from "@/components/Sidebar";
-import { useState } from "react";
-import SidebarButton from "@/components/SidebarButton";
-import PageName from "@/components/PageName";
-import Spacer from "@/components/Spacer";
+const layout = async ({ children }: { children: React.ReactNode }) => {
+  const data = await auth();
+  const user = await getUserByEmail(data?.user?.email);
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const [open, setOpen] = useState<boolean>(true);
-
-  return (
-    <>
-      <div className="w-full h-full flex">
-        <Sidebar open={open} />
-        <section className="flex-1 flex flex-col">
-          <div className="pt-4 pl-4">
-            <SidebarButton setOpen={() => setOpen(!open)} />
-          </div>
-          <div className="flex-1 px-24 py-4 pb-12 flex flex-col">
-            <PageName />
-            <Spacer height={8} />
-            <main className="flex-1">{children}</main>
-          </div>
-        </section>
-      </div>
-    </>
-  );
+  return <MainLayout user={user}>{children}</MainLayout>;
 };
 
-export default DashboardLayout;
+export default layout;

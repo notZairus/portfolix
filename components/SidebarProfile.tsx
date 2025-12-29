@@ -1,7 +1,3 @@
-import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { IUser } from "@/lib/global";
-import { getUserByEmail } from "@/actions/user.actions";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -14,22 +10,9 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import { MoreIcon } from "@hugeicons/core-free-icons";
 import { logout } from "@/actions/auth.actions";
+import { IUser } from "@/lib/global";
 
-const SidebarProfile = () => {
-  const { data } = useSession();
-  const [user, setUser] = useState<null | IUser>(null);
-
-  useEffect(() => {
-    if (!data) return;
-
-    const getUser = async () => {
-      const user = await getUserByEmail(data?.user?.email || "");
-      setUser(user);
-    };
-
-    getUser();
-  }, [data]);
-
+const SidebarProfile = ({ user }: { user: IUser }) => {
   const handleLogout = async () => {
     await logout();
   };
