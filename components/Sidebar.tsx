@@ -20,7 +20,7 @@ const Sidebar = ({ open, user }: { open: boolean; user: IUser }) => {
         } transition-all duration-500`}
       >
         <div className="h-full flex flex-col justify-between">
-          <div className="space-y-4">
+          <div className="space-y-4 flex-1 overflow-scroll no-scrollbar">
             <SidebarTitle />
             <SidebarNav />
           </div>

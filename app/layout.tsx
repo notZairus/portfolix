@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Particles from "@/components/Particles";
 import { SessionProvider } from "next-auth/react";
+import { Suspense } from "react";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -39,7 +40,9 @@ export default function RootLayout({
           <Particles particleCount={300} particleSpread={36} speed={0.1} />
         </div>
 
-        <SessionProvider>{children}</SessionProvider>
+        <SessionProvider>
+          <Suspense fallback={<h1>Loading....</h1>}>{children}</Suspense>
+        </SessionProvider>
 
         <Toaster className="fixed" />
       </body>
