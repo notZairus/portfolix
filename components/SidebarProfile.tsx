@@ -11,11 +11,24 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { MoreIcon } from "@hugeicons/core-free-icons";
 import { logout } from "@/actions/auth.actions";
 import { IUser } from "@/lib/global";
+import { useState, useEffect } from "react";
+import { getAuthenticatedUser } from "@/actions/user.actions";
 
-const SidebarProfile = ({ user }: { user: IUser }) => {
+const SidebarProfile = () => {
+  const [user, setUser] = useState<IUser | null>(null);
+
   const handleLogout = async () => {
+    setUser(null);
     await logout();
   };
+
+  useEffect(() => {
+    const getUser = async () => {
+      setUser(await getAuthenticatedUser());
+    };
+
+    getUser();
+  }, []);
 
   return (
     <div

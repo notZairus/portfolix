@@ -44,16 +44,8 @@ const collapsibleNavs = [
     icon: Profile02Icon,
     links: [
       {
-        title: "about",
-        href: "/skills/analyze",
-      },
-      {
-        title: "projects",
-        href: "/skills/learn",
-      },
-      {
-        title: "contact",
-        href: "/skills/recommend",
+        title: "manage",
+        href: "/portfolio/manage",
       },
     ],
   },

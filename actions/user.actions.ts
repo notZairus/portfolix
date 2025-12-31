@@ -1,13 +1,15 @@
 "use server";
 
+import { auth } from "@/lib/auth";
 import connectDb from "@/lib/db";
 import { IUser } from "@/lib/global";
 import User from "@/models/user";
 
-export const getUserByEmail = async (email) => {
+export const getAuthenticatedUser = async () => {
   await connectDb();
+  const data = await auth();
 
-  const user = await User.findOne({ email: email });
+  const user = await User.findOne({ email: data?.user?.email });
 
   if (!user) throw new Error("no user found!");
 

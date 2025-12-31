@@ -1,11 +1,9 @@
 "use client";
-
-import { IUser } from "@/lib/global";
 import SidebarTitle from "./SidebarTitle";
 import SidebarNav from "./SidebarNav";
 import SidebarProfile from "./SidebarProfile";
 
-const Sidebar = ({ open, user }: { open: boolean; user: IUser }) => {
+const Sidebar = ({ open }: { open: boolean }) => {
   return (
     <>
       <div
@@ -25,7 +23,7 @@ const Sidebar = ({ open, user }: { open: boolean; user: IUser }) => {
             <SidebarNav />
           </div>
           <div>
-            <SidebarProfile user={user} />
+            <SidebarProfile />
           </div>
         </div>
       </div>
